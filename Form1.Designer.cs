@@ -228,6 +228,7 @@ namespace Calculadora
             this.bt0n.TabIndex = 11;
             this.bt0n.Text = "0";
             this.bt0n.UseVisualStyleBackColor = false;
+            this.bt0n.Click += new System.EventHandler(this.BtDigito_Click);
             // 
             // btIniciar
             // 
@@ -270,6 +271,7 @@ namespace Calculadora
             this.btDividir.TabIndex = 14;
             this.btDividir.Text = "/";
             this.btDividir.UseVisualStyleBackColor = false;
+            this.btDividir.Click += new System.EventHandler(this.BtOperation_Click);
             // 
             // dbtMenos
             // 
@@ -284,6 +286,7 @@ namespace Calculadora
             this.dbtMenos.TabIndex = 15;
             this.dbtMenos.Text = "-";
             this.dbtMenos.UseVisualStyleBackColor = false;
+            this.dbtMenos.Click += new System.EventHandler(this.BtOperation_Click);
             // 
             // btPor
             // 
@@ -298,6 +301,7 @@ namespace Calculadora
             this.btPor.TabIndex = 16;
             this.btPor.Text = "x";
             this.btPor.UseVisualStyleBackColor = false;
+            this.btPor.Click += new System.EventHandler(this.BtOperation_Click);
             // 
             // btMas
             // 
@@ -312,6 +316,7 @@ namespace Calculadora
             this.btMas.TabIndex = 17;
             this.btMas.Text = "+";
             this.btMas.UseVisualStyleBackColor = false;
+            this.btMas.Click += new System.EventHandler(this.BtOperation_Click);
             // 
             // btIgual
             // 
@@ -326,6 +331,7 @@ namespace Calculadora
             this.btIgual.TabIndex = 18;
             this.btIgual.Text = "=";
             this.btIgual.UseVisualStyleBackColor = false;
+            this.btIgual.Click += new System.EventHandler(this.BtOperation_Click);
             // 
             // btTantoPorCiento
             // 
