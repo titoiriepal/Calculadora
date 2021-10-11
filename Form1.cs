@@ -21,5 +21,7 @@ namespace Calculadora
         {
             bt7n.BackColor = Color.Silver;
         }
+
+
     }
 }
