@@ -23,7 +23,6 @@ namespace Calculadora
         private Entrada ultimaEntrada;
         private bool comaDecimal;
         private char operador;
-        private char igualOperador;
         private byte numOperandos;
         private double operando1;
         private double operando2;
@@ -34,7 +33,6 @@ namespace Calculadora
             ultimaEntrada = Entrada.NINGUNA;
             comaDecimal = false;
             operador = '\0';
-            igualOperador = '\0';
             numOperandos = 0;
             operando1 = 0;
             operando2 = 0;
@@ -51,7 +49,7 @@ namespace Calculadora
             if (ultimaEntrada != Entrada.DIGITO)
             {
                 if (objButton.Text == "0") return;
-                etPantalla.Text = "";
+                etPantalla.Text = " ";
                 ultimaEntrada = Entrada.DIGITO;
                 comaDecimal = false;
             }
@@ -60,15 +58,24 @@ namespace Calculadora
 
         private void BtOperation_Click(object sender, EventArgs e)
         {
+            if (etPantalla.Text == "-") return;
             Button objButton = (Button)sender;
             string textoBoton = objButton.Text;
-            ;
+
+            if ((ultimaEntrada != Entrada.DIGITO) && (textoBoton[0] == '-'))
+            {
+                etPantalla.Text = "-";
+                ultimaEntrada = Entrada.DIGITO;
+                return;
+            }
+
             if (ultimaEntrada == Entrada.DIGITO)
                 numOperandos += 1;
             if (numOperandos == 1)
             {
-                igualOperador = textoBoton[0];
+                
                 operando1 = double.Parse(etPantalla.Text);
+                ultimaEntrada = Entrada.OPERADOR;
             }
             else if (numOperandos == 2)
             {
@@ -77,18 +84,23 @@ namespace Calculadora
                 {
                     case '+':
                         operando1 += operando2;
+                        ultimaEntrada = Entrada.DIGITO;
                         break;
                     case '-':
                         operando1 -= operando2;
+                        ultimaEntrada = Entrada.DIGITO;
                         break;
                     case 'x':
                         operando1 *= operando2;
+                        ultimaEntrada = Entrada.DIGITO;
                         break;
                     case '/':
                         operando1 /= operando2;
+                        ultimaEntrada = Entrada.DIGITO;
                         break;
                     case '=':
                         operando1 = operando2;
+                        ultimaEntrada = Entrada.DIGITO;
                         break;
                 }
                 etPantalla.Text = operando1.ToString();
@@ -96,7 +108,7 @@ namespace Calculadora
                 numOperandos = 1;
             }
             operador = textoBoton[0];
-            ultimaEntrada = Entrada.OPERADOR;
+            
             
         }
 
@@ -112,9 +124,35 @@ namespace Calculadora
             comaDecimal = true;
         }
 
-        private void btIgual_Click(object sender, EventArgs e)
+        private void btTantoPorCiento_Click(object sender, EventArgs e)
         {
+            double resultado;
+            
+            if (ultimaEntrada == Entrada.DIGITO)
+            {
+                resultado = operando1 * double.Parse(etPantalla.Text) / 100;
+                etPantalla.Text = resultado.ToString();
+                btIgual.PerformClick();
+                btTantoPorCiento.Focus();
+            }
+        }
 
+        private void btIniciar_Click(object sender, EventArgs e)
+        {
+            etPantalla.Text = "0,";
+            ultimaEntrada = Entrada.NINGUNA;
+            comaDecimal = false;
+            operador = '\0';
+            numOperandos = 0;
+            operando1 = 0;
+            operando2 = 0;
+        }
+
+        private void btBorrarEntrada_Click(object sender, EventArgs e)
+        {
+            etPantalla.Text = "0,";
+            ultimaEntrada = Entrada.CE;
+            comaDecimal = false;
         }
     }
 }

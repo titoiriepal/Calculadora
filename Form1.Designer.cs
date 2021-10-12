@@ -243,6 +243,7 @@ namespace Calculadora
             this.btIniciar.TabIndex = 12;
             this.btIniciar.Text = "C";
             this.btIniciar.UseVisualStyleBackColor = false;
+            this.btIniciar.Click += new System.EventHandler(this.btIniciar_Click);
             // 
             // btBorrarEntrada
             // 
@@ -257,6 +258,7 @@ namespace Calculadora
             this.btBorrarEntrada.TabIndex = 13;
             this.btBorrarEntrada.Text = "CE";
             this.btBorrarEntrada.UseVisualStyleBackColor = false;
+            this.btBorrarEntrada.Click += new System.EventHandler(this.btBorrarEntrada_Click);
             // 
             // btDividir
             // 
@@ -346,6 +348,7 @@ namespace Calculadora
             this.btTantoPorCiento.TabIndex = 19;
             this.btTantoPorCiento.Text = "%";
             this.btTantoPorCiento.UseVisualStyleBackColor = false;
+            this.btTantoPorCiento.Click += new System.EventHandler(this.btTantoPorCiento_Click);
             // 
             // Form1
             // 
