@@ -30,12 +30,7 @@ namespace Calculadora
         public Form1()
         {
             InitializeComponent();
-            ultimaEntrada = Entrada.NINGUNA;
-            comaDecimal = false;
-            operador = '\0';
-            numOperandos = 0;
-            operando1 = 0;
-            operando2 = 0;
+            btIniciar.PerformClick();
         }
 
         private void bt7n_MouseHover(object sender, EventArgs e)
