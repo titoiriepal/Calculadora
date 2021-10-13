@@ -49,6 +49,7 @@ namespace Calculadora
             this.btMas = new System.Windows.Forms.Button();
             this.btIgual = new System.Windows.Forms.Button();
             this.btTantoPorCiento = new System.Windows.Forms.Button();
+            this.btMasMenos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // etPantalla
@@ -237,7 +238,7 @@ namespace Calculadora
             this.btIniciar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btIniciar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btIniciar.Location = new System.Drawing.Point(234, 99);
+            this.btIniciar.Location = new System.Drawing.Point(268, 99);
             this.btIniciar.Name = "btIniciar";
             this.btIniciar.Size = new System.Drawing.Size(53, 56);
             this.btIniciar.TabIndex = 12;
@@ -252,7 +253,7 @@ namespace Calculadora
             this.btBorrarEntrada.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btBorrarEntrada.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btBorrarEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btBorrarEntrada.Location = new System.Drawing.Point(293, 99);
+            this.btBorrarEntrada.Location = new System.Drawing.Point(327, 99);
             this.btBorrarEntrada.Name = "btBorrarEntrada";
             this.btBorrarEntrada.Size = new System.Drawing.Size(53, 56);
             this.btBorrarEntrada.TabIndex = 13;
@@ -267,7 +268,7 @@ namespace Calculadora
             this.btDividir.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btDividir.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btDividir.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btDividir.Location = new System.Drawing.Point(234, 161);
+            this.btDividir.Location = new System.Drawing.Point(268, 161);
             this.btDividir.Name = "btDividir";
             this.btDividir.Size = new System.Drawing.Size(53, 56);
             this.btDividir.TabIndex = 14;
@@ -282,7 +283,7 @@ namespace Calculadora
             this.dbtMenos.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.dbtMenos.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.dbtMenos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dbtMenos.Location = new System.Drawing.Point(293, 161);
+            this.dbtMenos.Location = new System.Drawing.Point(327, 161);
             this.dbtMenos.Name = "dbtMenos";
             this.dbtMenos.Size = new System.Drawing.Size(53, 56);
             this.dbtMenos.TabIndex = 15;
@@ -297,7 +298,7 @@ namespace Calculadora
             this.btPor.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btPor.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btPor.Location = new System.Drawing.Point(234, 223);
+            this.btPor.Location = new System.Drawing.Point(268, 223);
             this.btPor.Name = "btPor";
             this.btPor.Size = new System.Drawing.Size(53, 56);
             this.btPor.TabIndex = 16;
@@ -312,7 +313,7 @@ namespace Calculadora
             this.btMas.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btMas.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btMas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btMas.Location = new System.Drawing.Point(293, 223);
+            this.btMas.Location = new System.Drawing.Point(327, 223);
             this.btMas.Name = "btMas";
             this.btMas.Size = new System.Drawing.Size(53, 56);
             this.btMas.TabIndex = 17;
@@ -327,7 +328,7 @@ namespace Calculadora
             this.btIgual.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btIgual.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btIgual.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btIgual.Location = new System.Drawing.Point(234, 285);
+            this.btIgual.Location = new System.Drawing.Point(268, 285);
             this.btIgual.Name = "btIgual";
             this.btIgual.Size = new System.Drawing.Size(53, 56);
             this.btIgual.TabIndex = 18;
@@ -342,7 +343,7 @@ namespace Calculadora
             this.btTantoPorCiento.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btTantoPorCiento.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btTantoPorCiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btTantoPorCiento.Location = new System.Drawing.Point(293, 285);
+            this.btTantoPorCiento.Location = new System.Drawing.Point(327, 285);
             this.btTantoPorCiento.Name = "btTantoPorCiento";
             this.btTantoPorCiento.Size = new System.Drawing.Size(53, 56);
             this.btTantoPorCiento.TabIndex = 19;
@@ -350,12 +351,24 @@ namespace Calculadora
             this.btTantoPorCiento.UseVisualStyleBackColor = false;
             this.btTantoPorCiento.Click += new System.EventHandler(this.btTantoPorCiento_Click);
             // 
+            // btMasMenos
+            // 
+            this.btMasMenos.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btMasMenos.Location = new System.Drawing.Point(203, 99);
+            this.btMasMenos.Name = "btMasMenos";
+            this.btMasMenos.Size = new System.Drawing.Size(59, 56);
+            this.btMasMenos.TabIndex = 20;
+            this.btMasMenos.Text = "+/-";
+            this.btMasMenos.UseVisualStyleBackColor = false;
+            this.btMasMenos.Click += new System.EventHandler(this.btMasMenos_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(372, 363);
+            this.ClientSize = new System.Drawing.Size(407, 363);
+            this.Controls.Add(this.btMasMenos);
             this.Controls.Add(this.btTantoPorCiento);
             this.Controls.Add(this.btIgual);
             this.Controls.Add(this.btMas);
@@ -404,6 +417,7 @@ namespace Calculadora
         private System.Windows.Forms.Button btMas;
         private System.Windows.Forms.Button btIgual;
         private System.Windows.Forms.Button btTantoPorCiento;
+        private System.Windows.Forms.Button btMasMenos;
     }
 }
 

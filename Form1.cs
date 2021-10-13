@@ -62,20 +62,11 @@ namespace Calculadora
             Button objButton = (Button)sender;
             string textoBoton = objButton.Text;
 
-            if ((ultimaEntrada != Entrada.DIGITO) && (textoBoton[0] == '-'))
-            {
-                etPantalla.Text = "-";
-                ultimaEntrada = Entrada.DIGITO;
-                return;
-            }
-
             if (ultimaEntrada == Entrada.DIGITO)
                 numOperandos += 1;
             if (numOperandos == 1)
             {
-                
                 operando1 = double.Parse(etPantalla.Text);
-                ultimaEntrada = Entrada.OPERADOR;
             }
             else if (numOperandos == 2)
             {
@@ -84,32 +75,27 @@ namespace Calculadora
                 {
                     case '+':
                         operando1 += operando2;
-                        ultimaEntrada = Entrada.DIGITO;
                         break;
                     case '-':
                         operando1 -= operando2;
-                        ultimaEntrada = Entrada.DIGITO;
                         break;
                     case 'x':
                         operando1 *= operando2;
-                        ultimaEntrada = Entrada.DIGITO;
                         break;
                     case '/':
                         operando1 /= operando2;
-                        ultimaEntrada = Entrada.DIGITO;
                         break;
                     case '=':
                         operando1 = operando2;
-                        ultimaEntrada = Entrada.DIGITO;
                         break;
                 }
-                etPantalla.Text = operando1.ToString();
-
-                numOperandos = 1;
+            etPantalla.Text = operando1.ToString();
+            numOperandos = 1;
             }
             operador = textoBoton[0];
-            
-            
+            ultimaEntrada = Entrada.OPERADOR;
+
+
         }
 
         private void btComaDec_Click(object sender, EventArgs e)
@@ -153,6 +139,12 @@ namespace Calculadora
             etPantalla.Text = "0,";
             ultimaEntrada = Entrada.CE;
             comaDecimal = false;
+        }
+
+        private void btMasMenos_Click_1(object sender, EventArgs e)
+        {
+            double numero = (double.Parse(etPantalla.Text) * -1);
+            etPantalla.Text = numero.ToString();
         }
     }
 }
