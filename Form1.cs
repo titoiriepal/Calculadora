@@ -27,6 +27,8 @@ namespace Calculadora
         private double operando1;
         private double operando2;
         private double memory;
+        private Boolean repetir = false;
+        private double numrepetir;
        
         public Form1()
         {
@@ -54,9 +56,15 @@ namespace Calculadora
 
         private void BtOperation_Click(object sender, EventArgs e)
         {
+
             if (txtPantalla.Text == "-") return;
             Button objButton = (Button)sender;
             string textoBoton = objButton.Text;
+            if (repetir && textoBoton[0] != '=')
+            {
+                numOperandos = 1;
+                ultimaEntrada = Entrada.OPERADOR;
+            }
 
             if (ultimaEntrada == Entrada.DIGITO)
                 numOperandos += 1;
@@ -65,32 +73,61 @@ namespace Calculadora
                 operando1 = double.Parse(txtPantalla.Text);
             }
             else if (numOperandos == 2)
-            {
-                operando2 = double.Parse(txtPantalla.Text);
+            { 
+                    operando2 = double.Parse(txtPantalla.Text);
                 switch (operador)
                 {
                     case '+':
-                        operando1 += operando2;
+                        if (repetir)
+                            operando1 += numrepetir;
+                        else
+                            operando1 += operando2;
+                        numOperandos = 1;
+
                         break;
                     case '-':
-                        operando1 -= operando2;
+                        if (repetir)
+                            operando1 -= numrepetir;
+                        else
+                            operando1 -= operando2;
+                        numOperandos = 1;
+
                         break;
                     case 'x':
-                        operando1 *= operando2;
+                        if (repetir)
+                            operando1 *= numrepetir;
+                        else
+                            operando1 *= operando2;
+                        numOperandos = 1;
+
                         break;
                     case '/':
-                        operando1 /= operando2;
+                        if (repetir)
+                            operando1 /= numrepetir;
+                        else
+                            operando1 /= operando2;
+                        numOperandos = 1;
+
                         break;
                     case '=':
                         operando1 = operando2;
                         break;
                 }
             txtPantalla.Text = operando1.ToString();
-            numOperandos = 1;
             }
-            operador = textoBoton[0];
-            ultimaEntrada = Entrada.OPERADOR;
-
+            if (textoBoton[0] != '=')
+            {
+                operador = textoBoton[0];
+                ultimaEntrada = Entrada.OPERADOR;
+                repetir = false;
+            }
+            else
+            {
+                if (!repetir)
+                    numrepetir = operando2;
+                repetir = true;
+                
+            }
 
         }
 
