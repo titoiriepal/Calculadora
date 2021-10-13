@@ -26,6 +26,7 @@ namespace Calculadora
         private byte numOperandos;
         private double operando1;
         private double operando2;
+        private double memory;
        
         public Form1()
         {
@@ -165,6 +166,23 @@ namespace Calculadora
         private void txtPantalla_KeyUp(object sender, KeyEventArgs e)
         {
             
+        }
+
+        private void btMemoryCopy_Click(object sender, EventArgs e)
+        {
+            
+            btIgual.PerformClick();
+            memory = double.Parse(txtPantalla.Text);
+        }
+
+        private void btMemoryRead_Click(object sender, EventArgs e)
+        {
+            if (memory != 0)
+            {
+                txtPantalla.Text = memory.ToString();
+                ultimaEntrada = Entrada.DIGITO;
+                
+            }
         }
     }
 }

@@ -409,6 +409,7 @@ namespace Calculadora
             this.btMemoryRead.TabIndex = 23;
             this.btMemoryRead.Text = "MR";
             this.btMemoryRead.UseVisualStyleBackColor = false;
+            this.btMemoryRead.Click += new System.EventHandler(this.btMemoryRead_Click);
             // 
             // btMemoryCopy
             // 
@@ -423,6 +424,7 @@ namespace Calculadora
             this.btMemoryCopy.TabIndex = 24;
             this.btMemoryCopy.Text = "MC";
             this.btMemoryCopy.UseVisualStyleBackColor = false;
+            this.btMemoryCopy.Click += new System.EventHandler(this.btMemoryCopy_Click);
             // 
             // txtPantalla
             // 
