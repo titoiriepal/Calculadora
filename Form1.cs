@@ -44,16 +44,16 @@ namespace Calculadora
             if (ultimaEntrada != Entrada.DIGITO)
             {
                 if (objButton.Text == "0") return;
-                etPantalla.Text = " ";
+                txtPantalla.Text = " ";
                 ultimaEntrada = Entrada.DIGITO;
                 comaDecimal = false;
             }
-            etPantalla.Text += objButton.Text;
+            txtPantalla.Text += objButton.Text;
         }
 
         private void BtOperation_Click(object sender, EventArgs e)
         {
-            if (etPantalla.Text == "-") return;
+            if (txtPantalla.Text == "-") return;
             Button objButton = (Button)sender;
             string textoBoton = objButton.Text;
 
@@ -61,11 +61,11 @@ namespace Calculadora
                 numOperandos += 1;
             if (numOperandos == 1)
             {
-                operando1 = double.Parse(etPantalla.Text);
+                operando1 = double.Parse(txtPantalla.Text);
             }
             else if (numOperandos == 2)
             {
-                operando2 = double.Parse(etPantalla.Text);
+                operando2 = double.Parse(txtPantalla.Text);
                 switch (operador)
                 {
                     case '+':
@@ -84,7 +84,7 @@ namespace Calculadora
                         operando1 = operando2;
                         break;
                 }
-            etPantalla.Text = operando1.ToString();
+            txtPantalla.Text = operando1.ToString();
             numOperandos = 1;
             }
             operador = textoBoton[0];
@@ -97,11 +97,11 @@ namespace Calculadora
         {
             if (ultimaEntrada != Entrada.DIGITO)
             {
-                etPantalla.Text = "0,";
+                txtPantalla.Text = "0,";
                 ultimaEntrada = Entrada.DIGITO;
             }
             else if (comaDecimal == false)
-                etPantalla.Text = etPantalla.Text + ",";
+                txtPantalla.Text = txtPantalla.Text + ",";
             comaDecimal = true;
         }
 
@@ -111,8 +111,8 @@ namespace Calculadora
             
             if (ultimaEntrada == Entrada.DIGITO)
             {
-                resultado = operando1 * double.Parse(etPantalla.Text) / 100;
-                etPantalla.Text = resultado.ToString();
+                resultado = operando1 * double.Parse(txtPantalla.Text) / 100;
+                txtPantalla.Text = resultado.ToString();
                 btIgual.PerformClick();
                 btTantoPorCiento.Focus();
             }
@@ -120,7 +120,7 @@ namespace Calculadora
 
         private void btIniciar_Click(object sender, EventArgs e)
         {
-            etPantalla.Text = "0,";
+            txtPantalla.Text = "0,";
             ultimaEntrada = Entrada.NINGUNA;
             comaDecimal = false;
             operador = '\0';
@@ -131,15 +131,40 @@ namespace Calculadora
 
         private void btBorrarEntrada_Click(object sender, EventArgs e)
         {
-            etPantalla.Text = "0,";
+            txtPantalla.Text = "0,";
             ultimaEntrada = Entrada.CE;
             comaDecimal = false;
         }
 
         private void btMasMenos_Click_1(object sender, EventArgs e)
         {
-            double numero = (double.Parse(etPantalla.Text) * -1);
-            etPantalla.Text = numero.ToString();
+            double numero = (double.Parse(txtPantalla.Text) * -1);
+            txtPantalla.Text = numero.ToString();
+        }
+
+        private void txtPantalla_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txtPantalla_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(8)) e.Handled = false;
+            else if (e.KeyChar == ',')
+            {
+                TextBox ObjTextBox = (TextBox)sender;
+                if (ObjTextBox.Text.IndexOf(',') != -1)
+                {
+                    e.Handled = true;
+                }
+            }
+            else if (e.KeyChar < '0' || e.KeyChar > '9')
+                e.Handled = true;
+        }
+
+        private void txtPantalla_KeyUp(object sender, KeyEventArgs e)
+        {
+            
         }
     }
 }
